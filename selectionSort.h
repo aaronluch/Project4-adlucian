@@ -5,7 +5,7 @@
 
 template<typename Comparable>
 
-vector<Comparable> selectionSort(vector<Comparable> vec, int& numReads, int &numWrites) {
+vector<Comparable> selectionSort(vector<Comparable>& vec, int& numReads, int &numWrites) {
     int swapIndex, i, minIndex;
     numReads = 0;
     numWrites = 0;

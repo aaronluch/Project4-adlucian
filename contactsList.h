@@ -80,7 +80,7 @@ public:
         }
     }
 
-    void sortAndPrint(function<vector<contact>(vector<contact>&, int&, int&)> sortingFunction, int& numReads, int& numWrites) {
+    void sortAndPrint(std::function<vector<contact>(vector<contact>&, int&, int&)> sortingFunction, int& numReads, int& numWrites) {
         vector<contact> sortedList = sortingFunction(contacts, numReads, numWrites);
 
         cout << left << setw(10) << "First" << "Last" << endl;
@@ -88,7 +88,6 @@ public:
             cout << setw(10) << c.first << c.last << endl;
         }
     }
-
 };
 
 #endif //PROJECT4_CONTACTSLIST_H

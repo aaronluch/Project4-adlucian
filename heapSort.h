@@ -39,12 +39,12 @@ void percolateDown(vector<Comparable> &items, int& i, unsigned long& n, int& chi
 }
 
 template <typename Comparable>
-vector<Comparable> heapSort(vector<Comparable> items) {
+vector<Comparable> heapSort(vector<Comparable>& items, int& numReads, int& numWrites) {
     int i, child;
     Comparable temp, tmp;
     unsigned long j, n;
-    int numReads = 0;
-    int numWrites = 0;
+    numReads = 0;
+    numWrites = 0;
 
     // build the heap (with max value at root)
     for (i = items.size() / 2 - 1; i >= 0; --i) {

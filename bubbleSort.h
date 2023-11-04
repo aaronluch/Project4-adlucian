@@ -4,12 +4,11 @@
 #include "printVec.h"
 
 template<typename Comparable>
-
-vector<Comparable> bubbleSort(vector<Comparable> vec) {
+vector<Comparable> bubbleSort(vector<Comparable>& vec, int& numReads, int& numWrites) {
     int numPasses = 0, i;
-    int numReads = 0;
-    int numWrites = 0;
     Comparable temp;
+    numReads = 0;
+    numWrites = 0;
     bool haveSwapped = true;
 
     while (haveSwapped) {

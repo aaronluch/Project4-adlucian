@@ -4,7 +4,6 @@
 #include "printVec.h"
 
 template<typename Comparable>
-
 vector<Comparable> insertionSort(vector<Comparable>& vec, int& numReads, int& numWrites) {
     int unsortedStartIndex, insertIndex;
     Comparable toBeInserted;
