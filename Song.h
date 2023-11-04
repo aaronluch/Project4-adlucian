@@ -233,7 +233,7 @@ string parseCSVRow(ifstream& inFile){
 void getDataFromFile(vector<Song> & songs){
     ifstream inFile;
 
-    inFile.open("../data/merged-songs.csv");
+    inFile.open("../merged-songs.csv");
 
     // Reads Header but prints nothing (intentionally)
     std::string header = "";
@@ -342,6 +342,11 @@ int getAverageReleaseYears(const vector<Song>& songs){
         averageReleaseYear = allReleaseYears / songs.size();
     }
     return averageReleaseYear;
+}
+
+// To pull ONLY the years from Release Dates
+int getReleaseYear(const string& release){
+    return std::stoi(release.substr(0,4));
 }
 
 /**
