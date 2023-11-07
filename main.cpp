@@ -40,8 +40,18 @@ int main() {
         releaseYears.push_back(year);
     }
 
+    vector<int> actualSortedData = releaseYears; // making a sorted vector for referencing
+    int numReadsTest = 0;
+    int numWritesTest = 0;
+    selectionSort(actualSortedData, numReadsTest, numWritesTest);
+    ofstream outFileTest("../output_data/actualSortedData.csv");
+    for(const int& value: actualSortedData){
+        outFileTest << value << ",";
+    }
+    outFileTest.close();
+
     // Header for sorting all 4 of these methods
-    ofstream outFile("../output_data/sorted_song_data.csv");
+    ofstream outFile("../output_data/sorted_song_data_TIMED.csv");
     outFile << "Vector Size,Bubble Reads,Bubble Writes,Bubble Time,Selection Reads,Selection Writes,Selection Time,"
                "Insertion Reads, Insertion Writes,Insertion Time,Heap Reads,Heap Writes,Heap Time" << endl;
 
