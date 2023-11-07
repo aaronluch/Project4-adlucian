@@ -61,7 +61,51 @@
     large datasets as the number of operations increases dramatically with the size of the input. Again though,
     this particular dataset had a very glaring exception as mentioned previously.<br><br>
   * Table of the data and times:
-  ![Table](data_images/sorted_table.png)
+  ![Table](data_images/sorted_table.png)<br><br>
+* **Analyzing stabilityTest function**
+  * How are the names sorted by default?
+    * By default, the first names in the list are sorted alphabetically, starting with a first name beginning with
+    an "A", ascending up to  the final name ending in an "S". The last names however are unsorted, with no clearly
+    recognizable pattern. So only the first name column of the csv is partially sorted for the entire dataset.
+  * How is the output from the two stable sorting algorithms different from the two unstable ones?
+    * ![Contact Lists Reads / Writes](/data_images/contactList_sorted.png)
+    * Here you can see a representation of the sorting methods resulting reads and writes. We see that the two
+    stable methods, (Bubble & Insertion) have very different resulting amounts of reads. Bubble sort had the greatest
+    amounts of reads at 114, however insertion remained low at only 18 reads. Additionally, the unstable methods,
+    (Selection & Heap) also had a similar outcome, with selection only having 18 reads, and Heap having 91 reads.
+    * When it came to the writes, Insertion had the overall least amount, with 18 writes in total. Trailing that,
+    both Heap and Selection had 27 writes, and Bubble Sort in last place with 45 writes.
+    * Insertion Sort, against the 3 other sorting algorithms, performed best in this scenario.
+  * Implications: 
+    * In terms of stability, Bubble and Insertion Sorts maintained the original order of items with equal keys, 
+    which is not guaranteed by the unstable algorithms.
+    * The efficiency of Insertion Sort in this data set suggests that it 
+    benefited from the partially pre-sorted first names column.
+  * Conclusions:
+    * Assuming we want stability because the original order was significant, we would opt for insertion in this case,
+    seeing as it was the overall best, but also because it is a stable sorting algorithm. This also shows that insertion
+    will be the best choice for nearly sorted and or small list datasets. 
+    * Because this was a list of names, we would've certainly wanted a sorting algorithm that was stable. As we saw from
+    the accumulation of read and write data, we were able to find the best sorting algorithm to accommodate this (Insertion).<br><br>
+* **Additional Questions:**
+  * If you need to sort a contacts list on a mobile app, which sorting algorithm(s) would you use and why?
+    * For a contacts list on a mobile app, which typically has a relatively small number of entries and is frequently 
+    accessed and updated by the user, I would prioritize algorithms that are efficient for small datasets and offer 
+    stability to preserve the order of contacts with the same sort key.
+    * With that being said, as we previously saw, Insertion Sort should be the best option for that task.
+  * What about if you need to sort a database of 20 million client files that are stored in a datacenter in the cloud?
+    * For such a large database, you would want to use something scalable like Heap Sort. Due to Heap Sort having a
+    consistent time complexity of O(n log n) for both the worst and average cases, this makes it very scalable when
+    dealing with large datasets, and provides a guaranteed level of performance as the complexity will not change.
+    * Additionally, Heap Sort sorts in place, requiring no additional memory allocation beyond what it is already sorting.
+    This makes it significantly more memory efficient when working with large datasets.
+    * It does have drawbacks though, as it is still an unstable sorting algorithm. If stability is required due to 
+    secondary sorting keys or if the original order carries semantic significance, this could be a limitation.
+    * The other two stable algorithms I covered would not be suitable for a dataset this large, as their time complexities
+    would be a major negative factor causing them to be inefficient. So if you need something more stable, you would need
+    to look elsewhere.
+      * Overall, Heap seems to be the best option for this scenario based on my findings.
+<br><br>
 
 * **Additional Sources**<br />
-  * Timing Algorithms Reference: https://www.geeksforgeeks.org/measure-execution-time-function-cpp/
+  * Timing Algorithms Reference (Chrono): https://www.geeksforgeeks.org/measure-execution-time-function-cpp/
