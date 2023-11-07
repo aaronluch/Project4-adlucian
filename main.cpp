@@ -6,6 +6,7 @@
 #include "Song.h"
 #include "fstream"
 #include "iostream"
+#include "chrono"
 using namespace std;
 
 void stabilityTest();
@@ -33,21 +34,83 @@ int main() {
     getDataFromFile(songs);
     // Create a vector to hold only years
     vector<int> releaseYears;
-
     // Extract the year from each song and add it to the vector
     for (const Song& song : songs) {
         int year = getReleaseYear(song.getRelease());
         releaseYears.push_back(year);
     }
 
-    // Sort years w/ selection sort
-    int numReads = 0;
-    int numWrites = 0;
-    releaseYears = selectionSort(releaseYears, numReads, numWrites);
+    // Header for sorting all 4 of these methods
+    ofstream outFile("../output_data/sorted_song_data.csv");
+    outFile << "Vector Size,Bubble Reads,Bubble Writes,Bubble Time,Selection Reads,Selection Writes,Selection Time,"
+               "Insertion Reads, Insertion Writes,Insertion Time,Heap Reads,Heap Writes,Heap Time" << endl;
 
-    for(int year : releaseYears){
-        cout << year << endl;
+    // We will be sorting the release years of each song in the entire vector
+    // Sort each copy with a different sorting algorithm under a loop
+    // Track reads and writes for each sorting method in increments of 100
+    for (int size = 100; size <= 1000; size += 100){
+        vector<int> currentReleaseYears(releaseYears.begin(), releaseYears.begin() + size);
+
+        // Write the initial size for this row
+        outFile << size;
+
+        // Reset reads and writes to initialize process
+        int numReads = 0, numWrites = 0;
+
+        // Bubble Sort
+        auto start = std::chrono::high_resolution_clock::now(); // starting clock
+        vector<int> releaseYearsBubbleSort = currentReleaseYears; // make a copy for bubble sort
+        bubbleSort(releaseYearsBubbleSort, numReads, numWrites);
+        outFile << "," << numReads << "," << numWrites;
+
+        // recording / writing time
+        auto end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double, std::milli> bubbleTime = end - start;
+        outFile << "," << bubbleTime.count();
+
+        numReads = 0, numWrites = 0; // reset reads and writes
+
+        // Selection Sort
+        start = std::chrono::high_resolution_clock::now(); // starting clock
+        vector<int> releaseYearsSelectionSort = currentReleaseYears; // make a copy for selection sort
+        selectionSort(releaseYearsSelectionSort, numReads, numWrites);
+        outFile << "," << numReads << "," << numWrites;
+        // recording / writing time
+        end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double, std::milli> selectionTime = end - start;
+        outFile << "," << selectionTime.count();
+
+        numReads = 0, numWrites = 0; // reset reads and writes
+
+        // Insertion Sort
+        start = std::chrono::high_resolution_clock::now(); // starting clock
+        vector<int> releaseYearsInsertionSort = currentReleaseYears; // make a copy for insertion sort
+        insertionSort(releaseYearsInsertionSort, numReads, numWrites);
+        outFile << "," << numReads << "," << numWrites;
+
+        // recording / writing time
+        end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double, std::milli> insertionTime = end - start;
+        outFile << "," << insertionTime.count();
+
+        numReads = 0, numWrites = 0; // reset reads and writes
+
+        // Heap Sort
+        start = std::chrono::high_resolution_clock::now(); // starting clock
+        vector<int> releaseYearsHeapSort = currentReleaseYears; // make a copy for heap sort
+        heapSort(releaseYearsHeapSort, numReads, numWrites);
+        outFile << "," << numReads << "," << numWrites;
+
+        // recording / writing time
+        end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double, std::milli> heapTime = end - start;
+        outFile << "," << heapTime.count();
+        // don't need to reset reads/writes; resets at beginning of loop
+
+        outFile << endl;
     }
+
+    outFile.close();
 
     stabilityTest();
     return 0;
