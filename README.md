@@ -39,7 +39,7 @@
       * You can see with this dataset, while it did perform better than bubble sort, it still was very expensive
       with both its amount of reads and writes--especially compared to selection sort.<br><br>
   * Heap Sort:
-    ![Heap Sorted](data_images/heapSorted.png)
+    ![Heap Sorted](data_images/heapSorted2.png)
     * The number of reads and writes grows more slowly than the other sorting algorithms.
     * For a vector size of 100, there are 3,578 reads and 297 writes, growing to 160,360 reads 
     and 2,997 writes for a vector size of 1000.
