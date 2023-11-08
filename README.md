@@ -12,7 +12,7 @@
 
 * **Analyze the data. Graph the number of reads and writes, and compare and contrast.**<br />
   * All Songs Sorted:
-  ![All Songs Sorted](data_images/all_songs_sorted.png)
+  ![All Songs Sorted](data_images/allSongsSorted.png)
     * _Note: it is hard to read exactly which line is which, so more graphs will provided for each
     sorting algorithm. The x-axis represents the size of the vector at a given point, and the y-axis
     represents the total amount of either reads or writes (hence two lines for each)_<br><br>
