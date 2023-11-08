@@ -63,7 +63,7 @@
     large datasets as the number of operations increases dramatically with the size of the input. Again though,
     this particular dataset had a very glaring exception as mentioned previously.<br><br>
   * Table of the data and times:
-  ![Table](data_images/songsDataTable)<br><br>
+  ![Table](data_images/songsDataTable.png)<br><br>
 * **Analyzing stabilityTest function**
   * How are the names sorted by default?
     * By default, the first names in the list are sorted alphabetically, starting with a first name beginning with
