@@ -59,9 +59,9 @@
       would therefore cause partially sorted segments of the dataset.
     * It should be noted though that _although_ selection sort performed the best, Heap Sort also performed very well
       based on its intended use (large datasets) and outperformed both Bubble and Insertion Sort.
-    * The quadratic complexities (O(n^2)) of Bubble, Selection, and Insertion Sorts make them inefficient for 
+    * The quadratic complexities (O(n^2)) of Bubble, Insertion, _and_ Selection Sorts make them inefficient for 
     large datasets as the number of operations increases dramatically with the size of the input. Again though,
-    this particular dataset had a very glaring exception as mentioned previously.<br><br>
+    in this particular dataset, Selection Sort had a _very_ glaring exception as mentioned previously.<br><br>
   * Table of the data and times:
   ![Table](data_images/songsDataTable.png)<br><br>
 * **Analyzing stabilityTest function**
