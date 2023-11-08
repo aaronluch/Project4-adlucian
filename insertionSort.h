@@ -32,8 +32,6 @@ vector<Comparable> insertionSort(vector<Comparable>& vec, int& numReads, int& nu
         // Uncomment this line if you want to see each iteration
         //printVec(vec);
     }
-    cout << "Number of Reads: " << numReads << endl;
-    cout << "Number of Writes: " << numWrites << endl;
     return vec;
 }
 
