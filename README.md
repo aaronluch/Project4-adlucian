@@ -68,7 +68,7 @@
     an "A", ascending up to  the final name ending in an "S". The last names however are unsorted, with no clearly
     recognizable pattern. So only the first name column of the csv is partially sorted for the entire dataset.
   * How is the output from the two stable sorting algorithms different from the two unstable ones?
-    * ![Contact Lists Reads / Writes](/data_images/contactList_sorted.png)
+    * ![Contact Lists Reads / Writes](/data_images/contactListSorted.png)
     * Here you can see a representation of the sorting methods resulting reads and writes. We see that the two
     stable methods, (Bubble & Insertion) have very different resulting amounts of reads. Bubble sort had the greatest
     amounts of reads at 114, however insertion remained low at only 18 reads. Additionally, the unstable methods,
