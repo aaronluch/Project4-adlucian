@@ -26,9 +26,8 @@
     ![Selection Sorted](data_images/selectionSorted.png)
     * The number of reads grows quadratically, but the number of writes remains relatively low compared to reads.
     * Reads grow from 594 to 6,946, while writes only grow from 297 to 2,997.
-    * This suggests that while Selection Sort also has an O(n^2) time complexity, it does fewer writes 
-    than the other sorting algorithms, potentially making it more efficient in scenarios where writes are 
-    more expensive than reads.<br><br>
+    * This suggests that while Selection Sort also has an O(n^2) time complexity, it has the least amount of reads and writes 
+    than compared to the other sorting algorithms.<br><br>
   * Insertion Sort:
     ![Insertion Sorted](data_images/insertionSorted.png)
     * The number of reads and writes also grows quadratically.
@@ -41,12 +40,12 @@
   * Heap Sort:
     ![Heap Sorted](data_images/heapSorted2.png)
     * The number of reads and writes grows more slowly than the other sorting algorithms.
-    * For a vector size of 100, there are 3,578 reads and 297 writes, growing to 160,360 reads 
-    and 2,997 writes for a vector size of 1000.
+    * For a vector size of 100, there are 3,578 reads and 2909 writes, growing to 160,360 reads 
+    and 124333 writes for a vector size of 1000.
     * Heap Sort has a time complexity of O(n log n), which explains the slower growth rate 
     compared to the other sorting algorithms.
-    * In this instance, Heap Sort performed identically with the amount of writes to selection sort, however
-    it had a _significant_ amount more of reads comparatively.<br><br>
+    * While Heap Sort is generally preferred for large datasets, this particular dataset had some
+    interesting characteristics that caused a lot of interesting scenarios (covered in the conclusions section.)<br><br>
   * Conclusions with this information:
     * In general, Heap Sort _is_ more efficient than the other algorithms for larger datasets since it has a lower 
     time complexity (O(n log n) vs O(n^2)), however in this instance, selection performed better than all others.
@@ -57,11 +56,13 @@
       beforehand, as the csv file of all the songs and their data is based on the order in which the user added
       them to the playlist. In this regard, they may have added songs and or albums all from one year, which
       would therefore cause partially sorted segments of the dataset.
+    * It should be noted though that _although_ selection sort performed the best, Heap Sort also performed very well
+      based on its intended use (large datasets) and outperformed both Bubble and Insertion Sort.
     * The quadratic complexities (O(n^2)) of Bubble, Selection, and Insertion Sorts make them inefficient for 
     large datasets as the number of operations increases dramatically with the size of the input. Again though,
     this particular dataset had a very glaring exception as mentioned previously.<br><br>
   * Table of the data and times:
-  ![Table](data_images/sorted_table.png)<br><br>
+  ![Table](data_images/songsDataTable)<br><br>
 * **Analyzing stabilityTest function**
   * How are the names sorted by default?
     * By default, the first names in the list are sorted alphabetically, starting with a first name beginning with
@@ -74,7 +75,7 @@
     amounts of reads at 114, however insertion remained low at only 18 reads. Additionally, the unstable methods,
     (Selection & Heap) also had a similar outcome, with selection only having 18 reads, and Heap having 91 reads.
     * When it came to the writes, Insertion had the overall least amount, with 18 writes in total. Trailing that,
-    both Heap and Selection had 27 writes, and Bubble Sort in last place with 45 writes.
+    Selection with 27 and Bubble Sort having 45. Heap ended in last place with 81 writes.
     * Insertion Sort, against the 3 other sorting algorithms, performed best in this scenario.
   * Implications: 
     * In terms of stability, Bubble and Insertion Sorts maintained the original order of items with equal keys, 
@@ -87,6 +88,8 @@
     will be the best choice for nearly sorted and or small list datasets. 
     * Because this was a list of names, we would've certainly wanted a sorting algorithm that was stable. As we saw from
     the accumulation of read and write data, we were able to find the best sorting algorithm to accommodate this (Insertion).<br><br>
+    * Also, we can see how algorithms with different intentions such as Bubble and Heap sort were _much_ more ineffecient
+      in this scenario, especially Heap Sort not being efficient at all for small-scale datasets.
 * **Additional Questions:**
   * If you need to sort a contacts list on a mobile app, which sorting algorithm(s) would you use and why?
     * For a contacts list on a mobile app, which typically has a relatively small number of entries and is frequently 
