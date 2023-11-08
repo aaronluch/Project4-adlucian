@@ -88,9 +88,9 @@
     seeing as it was the overall best, but also because it is a stable sorting algorithm. This also shows that insertion
     will be the best choice for nearly sorted and or small list datasets. 
     * Because this was a list of names, we would've certainly wanted a sorting algorithm that was stable. As we saw from
-    the accumulation of read and write data, we were able to find the best sorting algorithm to accommodate this (Insertion).<br><br>
+    the accumulation of read and write data, we were able to find the best sorting algorithm to accommodate this (Insertion).
     * Also, we can see how algorithms with different intentions such as Bubble and Heap sort were _much_ more ineffecient
-      in this scenario, especially Heap Sort not being efficient at all for small-scale datasets.
+      in this scenario, especially Heap Sort not being efficient at all for small-scale datasets.<br><br>
 * **Additional Questions:**
   * If you need to sort a contacts list on a mobile app, which sorting algorithm(s) would you use and why?
     * For a contacts list on a mobile app, which typically has a relatively small number of entries and is frequently 
