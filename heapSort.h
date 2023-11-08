@@ -28,6 +28,7 @@ void percolateDown(vector<Comparable> &items, int& i, unsigned long& n, int& chi
         // if the parent is less than the child, swap them
         if (tmp < items[child]) {
             items[i] = items[child];
+            numWrites += 1;
             numReads += 1; // reading items[child] again
         }
         else {
@@ -36,6 +37,7 @@ void percolateDown(vector<Comparable> &items, int& i, unsigned long& n, int& chi
         }
     }
     items[i] = tmp;
+    numWrites += 1;
 }
 
 template <typename Comparable>
@@ -76,8 +78,6 @@ vector<Comparable> heapSort(vector<Comparable>& items, int& numReads, int& numWr
         // Uncomment this line if you want to see each iteration
         //printVec(vec);
     }
-    cout << "Number of Reads: " << numReads << endl;
-    cout << "Number of Writes: " << numWrites << endl;
     return items;
 }
 
