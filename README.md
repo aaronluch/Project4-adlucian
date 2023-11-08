@@ -42,7 +42,7 @@
     ![Heap Sorted](data_images/heapSorted2.png)
     * The number of reads and writes grows more slowly than the other sorting algorithms.
     * For a vector size of 100, there are 3,578 reads and 2909 writes, growing to 160,360 reads 
-    and 124333 writes for a vector size of 1000.
+    and 124,333 writes for a vector size of 1000.
     * Heap Sort has a time complexity of O(n log n), which explains the slower growth rate 
     compared to the other sorting algorithms.
     * While Heap Sort is generally preferred for large datasets, this particular dataset had some
