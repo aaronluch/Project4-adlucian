@@ -27,7 +27,8 @@
     * The number of reads grows quadratically, but the number of writes remains relatively low compared to reads.
     * Reads grow from 594 to 6,946, while writes only grow from 297 to 2,997.
     * This suggests that while Selection Sort also has an O(n^2) time complexity, it has the least amount of reads and writes 
-    than compared to the other sorting algorithms.<br><br>
+    than compared to the other sorting algorithms. The graph also _looks_ linear, however, Selection Sort always has a
+    time complexity of O(n^2).<br><br>
   * Insertion Sort:
     ![Insertion Sorted](data_images/insertionSorted.png)
     * The number of reads and writes also grows quadratically.
