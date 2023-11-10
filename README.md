@@ -108,4 +108,4 @@
 <br><br>
 
 * **Additional Sources**<br />
-  * Timing Algorithms Reference (Chrono): https://www.geeksforgeeks.org/measure-execution-time-function-cpp/
+  * Timing Algorithms Reference (Chrono): https://www.geeksforgeeks.org/measure-execution-time-function-cpp
